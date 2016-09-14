@@ -12,7 +12,7 @@ assert (!libsOnly) -> kernel != null;
 
 let
 
-  versionNumber = "367.35";
+  versionNumber = "367.44";
 
   # Policy: use the highest stable version as the default (on our master).
   inherit (stdenv.lib) makeLibraryPath;
@@ -55,7 +55,7 @@ stdenv.mkDerivation {
     [ gtk2 atk pango glib gdk_pixbuf cairo ] );
   programPath = makeLibraryPath [ xorg.libXv ];
 
-  patches = if (!libsOnly) && (versionAtLeast kernel.dev.version "4.7") then [ ./365.35-kernel-4.7.patch ] else [];
+  patches = if (!libsOnly) && (versionAtLeast kernel.dev.version "4.7") then [ ./365.44-kernel-4.7.patch ] else [];
 
   buildInputs = [ perl nukeReferences ];
 
